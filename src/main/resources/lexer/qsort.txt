@@ -1,0 +1,32 @@
+void sort(int *a, int left, int right) {
+    if (left >= right)
+        return;
+    int i, j, key;
+    i = left;
+    j = right;
+    key = a[i];
+    while(i < j) {
+        for(; i < j && a[j] >= key; j = j - 1);
+        a[i] = a[j];
+        for(; i < j && a[i] <= key; i = i + 1);
+        a[j] = a[i];
+    }
+    a[i] = key;
+    int new_right, new_left;
+    new_right = i - 1;
+    new_left = i + 1;
+    sort(a, left, new_right);
+    sort(a, new_left, right);
+}
+
+int main() {
+    int i, a[10];
+    for(i = 0;i < 10;i = i + 1)
+        a[i] = 5 - i;
+    a[3] = 0;
+    a[6] = 3;
+    a[2] = 0-1;
+    a[8] = 10;
+    sort(a, 0, 9);
+    return 0;
+}

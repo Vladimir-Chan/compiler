@@ -1,0 +1,4 @@
+= * i \epsilon
+S L = R $ R
+L * R $ i
+R L $ \epsilon

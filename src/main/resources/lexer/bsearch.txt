@@ -1,0 +1,29 @@
+int binary_search(int *a, int length, int key) {
+    int left, right, middle;
+    left = 0;
+    right = length - 1;
+    middle = (left + right) / 2;
+    while(left < middle) {
+        if (a[middle] < key)
+            left = middle;
+        else if (a[middle] == key)
+            return middle;
+        else
+            right = middle;
+        middle = (left + right) / 2;
+    }
+    if (a[left] == key)
+        return left;
+    else if (a[right] == key)
+        return right;
+    else
+        return 0-1;
+}
+
+int main() {
+    int i, a[10], b;
+    for(i = 0; i < 10; i = i + 1)
+        a[i] = i;
+    b = binary_search(a, 10, 3);
+    return 0;
+}

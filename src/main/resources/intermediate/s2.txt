@@ -1,0 +1,10 @@
+c n d v o i [ ] * \epsilon ( ) s ; , { }
+function_definition return_type function_name ( formal_parameter_list ) { variable_definition }
+function_name i
+return_type c $ n $ d $ v $ c * $ n * $ d * $ s i *
+formal_parameter_list v $ \epsilon $ formal_variable_list
+formal_variable_list variable_type variable $ formal_variable_list , variable_type variable
+variable_definition variable_type variable_list ;
+variable_type c $ n $ d $ s i
+variable_list variable_list , variable $ variable
+variable i $ i [ o ] $ * i

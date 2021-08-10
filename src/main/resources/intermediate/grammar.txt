@@ -1,0 +1,54 @@
+void char int double struct if else do while for switch case default break continue return + - * / % > < & | ! = id constant \epsilon : . , ; ( ) [ ] { }
+program external_declaration $ program external_declaration
+external_declaration function_definition $ structure_definition $ variable_definition
+function_definition return_type id ( formal_parameter_list ) compound_statement
+return_type char $ int $ double $ void $ char * $ int * $ double * $ struct id *
+formal_parameter_list void $ \epsilon $ formal_variable_list
+formal_variable_list variable_type single_variable $ formal_variable_list , variable_type single_variable
+variable_type char $ int $ double $ struct id
+single_variable id $ id [ constant ] $ * id
+structure_definition struct id { member_list } ;
+member_list member_list variable_declaration $ variable_declaration
+variable_declaration variable_type variable_list_without_initialize ;
+variable_list_without_initialize single_variable $ variable_list_without_initialize , single_variable
+variable_definition variable_type variable_list ;
+variable_list variable_list variables $ variables
+variables id single_initialize $ id [ constant ] array_initialize $ * id pointer_initialize
+single_initialize \epsilon $ = constant $ = variable
+array_initialize \epsilon $ = { constant_list }
+constant_list constant $ constant_list , constant
+pointer_initialize \epsilon $ = & variable
+variable id $ * id $ id [ constant ] $ id . id $ id - > id
+compound_statement { statement_list }
+statement_list statement_list statement $ \epsilon
+statement single_statement $ compound_statement
+single_statement structure_definition $ variable_definition $ basic_statement $ if_statement $ while_statement $ for_statement $ do_while_statement $ switch_statement $ break_statement $ continue_statement $ return_statement
+basic_statement expression ; $ ;
+expression  single_expression $ comma_expression
+single_expression function_call_expression $ assignment_expression $ arithmetic_expression $ relational_expression $ logical_expression
+function_call_expression function_name ( real_parameter_list )
+real_parameter_list real_parameter_list value $ value
+value variable $ constant $ arithmetic_expression
+arithmetic_expression arithmetic_expression ad_operator md_expression $ md_expression
+ad_operator + $ -
+md_expression md_expression md_operator arithmetic_atomic_expression $ arithmetic_atomic_expression
+md_operator * $ / $ %
+arithmetic_atomic_expression variable $ constant $ ( arithmetic_expression ) $ function_call_expression
+relational_expression relational_atomic_expression  relational_operator arithmetic_expression
+relational_operator > $ < $ > = $ < = $ = = $ ! =
+logical_expression ! ( ao_expression ) $ ao_expression
+ao_expression ao_expression | | and_expression $ and_expression
+and_expression and_expression & & logical_atomic_expression $ relational_expression
+assignment_expression variable = single_expression
+comma_expression single_expression $ comma_expression , single_expression
+if_statement if ( logical_expression ) statement else_statement
+else_statement \epsilon $ else statement
+while_statement while ( logical_expression ) statement
+for_statement for ( single_expression ; logical_expression ; single_expression ) statement
+do_while_statement do statement while ( logical_expression )
+switch_statement switch ( single_expression ) { case_statement default_statement }
+case_statement case_statement case constant : statement_list $ case constant : statement_list
+default_statement \epsilon default : statement_list
+break_statement break ;
+continue_statement continue ;
+return_statement return basic_statement

@@ -1,0 +1,55 @@
+void char int double struct if else do while for switch case default break continue return + - * / % > < && || != = id character integer float \epsilon : . , ; ( ) [ ] { } -> >= <= == &
+program external_declaration $ program external_declaration
+external_declaration function_definition $ structure_definition
+structure_definition struct id { member_list } ;
+member_list member_list variable_declaration $ variable_declaration
+variable_declaration variable_type variable_list ;
+variable_list single_variable $ variable_list , single_variable
+function_definition return_type function_name ( formal_parameter_list ) compound_statement
+function_name id
+return_type char $ int $ double $ void $ char * $ int * $ double * $ struct id *
+formal_parameter_list void $ \epsilon $ formal_variable_list
+formal_variable_list variable_type single_variable $ formal_variable_list , variable_type single_variable
+variable_type char $ int $ double $ struct id
+single_variable id $ id [ constant ] $ * id
+constant character $ integer $ float
+compound_statement { statement_list }
+statement_list statement_list statement $ statement
+statement single_statement $ compound_statement
+single_statement variable_declaration $ basic_statement $ if_statement $ while_statement $ for_statement $ do_while_statement $ switch_statement $ break_statement $ continue_statement $ return_statement
+basic_statement expression ; $ ;
+expression single_expression $ expression , single_expression
+single_expression assignment_expression $ function_call_expression
+function_call_expression function_name ( real_parameter_list )
+real_parameter_list real_parameter_list , value $ value
+value variable $ constant
+basic_variable id $ basic_variable . id $ basic_variable -> id
+variable basic_variable $ * basic_variable $ basic_variable [ arithmetic_expression ]
+assignment_expression rs = function_call_expression $ rs = arithmetic_expression $ rs = & variable $ rs = assignment_expression
+rs variable
+arithmetic_expression arithmetic_expression ad_operator md_expression $ md_expression
+ad_operator + $ -
+md_expression md_expression md_operator arithmetic_atomic_expression $ arithmetic_atomic_expression
+md_operator * $ / $ %
+arithmetic_atomic_expression value $ ( arithmetic_expression )
+relational_expression arithmetic_expression relational_operator arithmetic_expression
+relational_operator > $ < $ >= $ <= $ == $ !=
+logical_expression logical_expression || and_expression $ and_expression
+and_expression and_expression && logical_atomic_expression $ logical_atomic_expression
+logical_atomic_expression relational_expression $ ! ( logical_expression ) $ ( logical_expression )
+if_statement if ( logical_expression right_bracket statement $ if ( logical_expression right_bracket statement else statement
+right_bracket )
+while_statement while ( logical_expression right_bracket statement
+for_statement for ( for_front ; for_middle ; for_back ) statement
+for_front expression $ \epsilon
+for_middle logical_expression
+for_back expression $ \epsilon
+do_while_statement do statement while ( logical_expression right_bracket;
+switch_statement switch_front { case_statement default_statement }
+switch_front switch ( arithmetic_expression )
+case_statement case_statement case constant : case_body $ \epsilon
+case_body statement_list $ \epsilon
+default_statement \epsilon $ default : statement_list
+break_statement break ;
+continue_statement continue ;
+return_statement return arithmetic_expression ; $ return ;

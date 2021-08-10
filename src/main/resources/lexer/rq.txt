@@ -1,0 +1,75 @@
+0 a = $a0  
+1 left = $a1  
+2 right = $a2  
+3 $s0 = left  
+4 $s1 = right  
+5 if not $s0 >= $s1 goto 7
+6 goto $ra
+7 i = left  
+8 j = right  
+9 key = a[i]  
+10 $s0 = i  
+11 $s1 = j  
+12 if not $s0 < $s1 goto 32
+13 $s0 = i  
+14 $s1 = j  
+15 if $s0 < $s1 goto 0
+16 $s0 = a[j]  
+17 $s1 = key  
+18 if not $s0 >= $s1 goto 21
+19 j = j - 1
+20 goto 13
+21 a[i] = a[j]  
+22 $s0 = i  
+23 $s1 = j  
+24 if $s0 < $s1 goto 0
+25 $s0 = a[i]  
+26 $s1 = key  
+27 if not $s0 <= $s1 goto 30
+28 i = i + 1
+29 goto 22
+30 a[j] = a[i]  
+31 goto 10
+32 a[i] = key  
+33 new_right = i - 1
+34 new_left = i + 1
+35 $a0 = a  
+36 $a1 = left  
+37 $a2 = new_right  
+38 $sp = $sp - 1
+39 $sp[0] = $ra  
+40 $ra = 42  
+41 goto 0
+42 $ra = $sp[0]  
+43 $sp = $sp + 1
+44 $a0 = a  
+45 $a1 = new_left  
+46 $a2 = right  
+47 $sp = $sp - 1
+48 $sp[0] = $ra  
+49 $ra = 51  
+50 goto 0
+51 $ra = $sp[0]  
+52 $sp = $sp + 1
+53 i = 0  
+54 $s0 = i  
+55 $s1 = 10  
+56 if not $s0 < $s1 goto 60
+57 a[i] = 5 - i
+58 i = i + 1
+59 goto 54
+60 a[3] = 0  
+61 a[6] = 3  
+62 a[2] = 0 - 1
+63 a[8] = 10  
+64 $a0 = a  
+65 $a1 = 0  
+66 $a2 = 9  
+67 $sp = $sp - 1
+68 $sp[0] = $ra  
+69 $ra = 71  
+70 goto 0
+71 $ra = $sp[0]  
+72 $sp = $sp + 1
+73 $v = 0  
+74 goto $ra

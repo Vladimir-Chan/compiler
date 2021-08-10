@@ -1,0 +1,5 @@
+c n d s i ; * \epsilon [ ] . - > o = { } & ,
+variable_definition variable_type variable_list ;
+variable_type c $ n $ d $ s i
+variable_list variable_list , variables $ variables
+variables i $ i [ o ] $ * i

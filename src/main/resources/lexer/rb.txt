@@ -1,0 +1,59 @@
+0 a = $a0  
+1 length = $a1  
+2 key = $a2  
+3 left = 0  
+4 right = length - 1
+5 $t0 = left + right
+6 middle = $t0 / 2
+7 $s0 = left  
+8 $s1 = middle  
+9 if not $s0 < $s1 goto 25
+10 $s0 = a[middle]  
+11 $s1 = key  
+12 if not $s0 < $s1 goto 15
+13 left = middle  
+14 goto 22
+15 $s0 = a[middle]  
+16 $s1 = key  
+17 if not $s0 == $s1 goto 21
+18 $v = middle  
+19 goto $ra
+20 goto 22
+21 right = middle  
+22 $t0 = left + right
+23 middle = $t0 / 2
+24 goto 7
+25 $s0 = a[left]  
+26 $s1 = key  
+27 if not $s0 == $s1 goto 31
+28 $v = left  
+29 goto $ra
+30 goto 40
+31 $s0 = a[right]  
+32 $s1 = key  
+33 if not $s0 == $s1 goto 37
+34 $v = right  
+35 goto $ra
+36 goto 40
+37 $t0 = 0 - 1
+38 $v = $t0  
+39 goto $ra
+40 i = 0  
+41 $s0 = i  
+42 $s1 = 10  
+43 if not $s0 < $s1 goto 47
+44 a[i] = i  
+45 i = i + 1
+46 goto 41
+47 $a0 = a  
+48 $a1 = 10  
+49 $a2 = 3  
+50 $sp = $sp - 1
+51 $sp[0] = $ra  
+52 $ra = 54  
+53 goto 0
+54 $ra = $sp[0]  
+55 $sp = $sp + 1
+56 b = $v  
+57 $v = 0  
+58 goto $ra
